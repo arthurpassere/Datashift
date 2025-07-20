@@ -7,12 +7,20 @@ import (
 	"net/http"
 )
 
+func enableCORS(w *http.ResponseWriter, req *http.Request){
+    (*w).Header().Set("Access-Control-Allow-Origin", "*")
+    (*w).Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+    (*w).Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+}
+
 type Response struct {
 	OK bool `json:"ok"`
 }
 
 
 func handleConvert(w http.ResponseWriter, r *http.Request) {
+	enableCORS(&w, r)
+
 	if r.Method == "OPTIONS" {
 		w.WriteHeader(http.StatusOK)
 		return
@@ -34,6 +42,8 @@ func handleConvert(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleHealth(w http.ResponseWriter, r *http.Request) {
+	enableCORS(&w, r)
+
 	if r.Method == "OPTIONS" {
 		w.WriteHeader(http.StatusOK)
 		return

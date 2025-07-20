@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.DataShift {
+  @apply relative w-full h-screen overflow-hidden;
+}
+
+.Background {
+  @apply fixed inset-0 w-full h-full bg-black z-0;
+}
+
+.hero-section {
+  @apply relative flex justify-center mt-6 z-10;
+}
+
+.headline {
+  @apply text-white font-bold text-center text-4xl py-2 px-4 rounded max-w-200;
+}
+
+.editor {
+  @apply relative flex justify-center items-center mt-8 z-10;
+}
