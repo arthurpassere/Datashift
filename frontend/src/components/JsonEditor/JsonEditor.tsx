@@ -10,7 +10,7 @@ export default function JsonEditor() {
   };
 
   return (
-    <div className='h-96 w-full max-w-2xl rounded-2xl overflow-hidden bg-gray-900'>
+    <div className='h-108 w-full max-w-2xl border rounded-xl overflow-hidden'>
       <Editor
         height='100%'
         defaultLanguage='json'
@@ -27,6 +27,8 @@ export default function JsonEditor() {
           quickSuggestions: false,
           renderValidationDecorations: "off",
           overviewRulerLanes: 0,
+          lineNumbersMinChars: 2,
+          folding: false,
         }}
       />
     </div>
